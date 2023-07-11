@@ -1,0 +1,3 @@
+#!/bin/bash
+count=0; count_directories() { local dir="$1" count=0; for entry in "$dir"/*; do if [[ -d "$entry" && "$entry" != "." && "$entry" != ".." ]]; then ((count++)); count_directories "$entry"; fi; done; return $count; } && count_directories "." && echo "Number of directories and subdirectories: $?"
+
